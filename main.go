@@ -4,29 +4,12 @@ import (
 	"fmt"
 )
 
-func canIDrink(age int) bool {
-	// variable exprission : if-else에서 사용할 수 있는 변수를 앞에 선언해준다.
-	// switch문에서도 사용할 수 있다.
-	switch koreanAge := age + 2; {
-	case 10:
-		return false
-	case 18:
-		return true
-	}
-	return false
-
-	// switch koreanAge := age + 2; {
-	// case koreanAge < 18:
-	// 	return false
-	// case koreanAge == 18:
-	// 	return true
-	// case koreanAge > 50:
-	// 	return false
-	// }
-	// return false
-
-}
-
+// 변수 앞에 &를 붙이면 그 변수의 메모리 주소를 볼 수 있고,
+// 메모리 주소가 들어있는 변수라면 앞에 *를 붙이면 그 메모리의 값을 볼 수 있다.
 func main() {
-	fmt.Println(canIDrink(16))
+	a := 2
+	b := &a
+	a = 10
+	*b = 20
+	fmt.Println(a)
 }
