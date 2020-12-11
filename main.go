@@ -2,13 +2,27 @@ package main
 
 import "fmt"
 
-func main() {
-	// 코드를 축약시켜서 사용하여 변수를 선언할 수 있다.
-	// 축약형은 오로지 func안에서만 가능하고 변수에만 적용할 수 있다.
-	// 축약형이 존재하면 Go가 첫번째 값을 기준으로 변수의 type을 찾아 정해줄것임.
-	// var name string = "jiwon"
-	name := "jiwon"
+// func multiply(a, b int) int {
+// 	return a * b
+// }
 
-	name = "Lynn"
-	fmt.Println(name)
+// jiwon을 넣으면 문자의 길이(int)와 대문자 JIWON을 출력하도록 함.
+// func lenAndUpper(name string) (int, string) {
+// 	return len(name), strings.ToUpper(name)
+// }
+
+// 다량의 argument를 받는 방법
+func repeatMe(words ...string) {
+	fmt.Println(words)
+}
+
+func main() {
+	// totalLenght, upperName := lenAndUpper("jiwon")
+	// fmt.Println(totalLenght, upperName)
+
+	// Multi로 들어오는 값의 경우 _라고 받아주면 ignore할수 있음.
+	// totalLenght, _ := lenAndUpper("jiwon")
+	// fmt.Println(totalLenght)
+
+	repeatMe("jiwon", "ji2", "ji3", "j4", "j5")
 }
