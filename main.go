@@ -1,28 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
-// func multiply(a, b int) int {
-// 	return a * b
-// }
-
-// jiwon을 넣으면 문자의 길이(int)와 대문자 JIWON을 출력하도록 함.
-// func lenAndUpper(name string) (int, string) {
-// 	return len(name), strings.ToUpper(name)
-// }
-
-// 다량의 argument를 받는 방법
-func repeatMe(words ...string) {
-	fmt.Println(words)
+// return type을 쓰는 곳에서 return을 해줄수 있다.
+// a.k.a naked return
+func lenAndUpper(name string) (length int, uppercase string) {
+	// defer는 function이 일을 다 끝마치고 return을 하고 나서 여기있는 코드가 또 돌아감.
+	defer fmt.Println("I'm done")
+	length = len(name)
+	uppercase = strings.ToUpper(name)
+	return
 }
 
 func main() {
-	// totalLenght, upperName := lenAndUpper("jiwon")
-	// fmt.Println(totalLenght, upperName)
-
-	// Multi로 들어오는 값의 경우 _라고 받아주면 ignore할수 있음.
-	// totalLenght, _ := lenAndUpper("jiwon")
-	// fmt.Println(totalLenght)
-
-	repeatMe("jiwon", "ji2", "ji3", "j4", "j5")
+	totalLenght, upperName := lenAndUpper("jiwon")
+	fmt.Println(totalLenght, upperName)
 }
