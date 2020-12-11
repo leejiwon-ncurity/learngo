@@ -4,12 +4,11 @@ import (
 	"fmt"
 )
 
-// 변수 앞에 &를 붙이면 그 변수의 메모리 주소를 볼 수 있고,
-// 메모리 주소가 들어있는 변수라면 앞에 *를 붙이면 그 메모리의 값을 볼 수 있다.
+// array := [langth] type {elements} 이렇게 써야하는데,
+// 아래와 같이 limit이 없는 것을 slice라고 한다.
+// 대신 slice에 값 넣으려면 append함수를 써야하고, append함수는 추가되고 새로운 array를 뱉는다.
 func main() {
-	a := 2
-	b := &a
-	a = 10
-	*b = 20
-	fmt.Println(a)
+	names := []string{"jiwon", "j2", "j3"}
+	names = append(names, "wjeiofjwoe")
+	fmt.Println(names)
 }
