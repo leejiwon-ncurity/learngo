@@ -2,20 +2,23 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
-// return type을 쓰는 곳에서 return을 해줄수 있다.
-// a.k.a naked return
-func lenAndUpper(name string) (length int, uppercase string) {
-	// defer는 function이 일을 다 끝마치고 return을 하고 나서 여기있는 코드가 또 돌아감.
-	defer fmt.Println("I'm done")
-	length = len(name)
-	uppercase = strings.ToUpper(name)
-	return
+// go에서 loop를 만드는 방법.
+// range는 항상 index를 return한다.
+func superAdd(numbers ...int) int {
+	// for index, number := range numbers {
+	// 	fmt.Println(index, number)
+	// }
+	total := 0
+	for _, number := range numbers {
+		fmt.Println(number)
+		total += number
+	}
+	return total
 }
 
 func main() {
-	totalLenght, upperName := lenAndUpper("jiwon")
-	fmt.Println(totalLenght, upperName)
+	result := superAdd(1, 2, 3, 4, 5, 6, 7, 8)
+	fmt.Println(result)
 }
