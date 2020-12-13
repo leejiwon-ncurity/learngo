@@ -1,12 +1,18 @@
 package accounts
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+)
 
 // Account struct
 type Account struct {
 	owner   string
 	balance int
 }
+
+// error를 만들거라면 변수이름을 err000이라고 지정해주어야함.
+var errNoMoney = errors.New("Can't withdraw")
 
 // NewAccount creates Account
 func NewAccount(owner string) *Account {
@@ -29,8 +35,24 @@ func (a Account) Balance() int {
 // Withdraw x amount from your account
 func (a *Account) Withdraw(amount int) error {
 	if a.balance < amount {
-		return errors.New("Can't withdraw you are poor")
+		return errNoMoney
 	}
 	a.balance -= amount
 	return nil
+}
+
+// ChangeOwner of the account
+func (a *Account) ChangeOwner(newOwner string)  {
+	a.owner = newOwner
+}
+
+// Owner of the account
+func (a Account) Owner() string  {
+	return a.owner
+}
+
+// struct의 toString() 같은 것
+func (a Account) String() string  {
+	return fmt.Sprint(a.Owner(), "'s account.\nHas: ", a.Balance())
+	
 }
